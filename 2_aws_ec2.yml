@@ -1,0 +1,21 @@
+# file: 2_aws_ec2.yml
+---
+
+- name: Configure Ansible Tower 
+  hosts: tag_Name_ansible_tower
+  tasks: []
+  environment:
+    AWS_ACCESS_KEY_ID: "{{ aws_access_key }}"
+    AWS_SECRET_ACCESS_KEY: "{{ aws_secret_key }}"
+  roles:
+    - { role: ansible.tower }
+
+
+#############################################################
+#  USAGE
+#############################################################
+
+# Using ec2.py to query AWS for your instance by AWS Tags
+#
+# ansible-playbook -i inventory 2_aws_ec2.yml
+
